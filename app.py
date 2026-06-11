@@ -1,19 +1,15 @@
 import random
-print("Hello, World!")
 num = random.randint(1, 10)
-print(f"The random number is: {num}")
 
-
-userGuess = input("Press Enter to continue...")
+userGuess = input("Guess a number between 1 and 10: ")
 userGuess = int(userGuess)
 
 if userGuess == num:
     print("Congratulations! You guessed the number.")
 else:
     while userGuess != num:
-        print(f"Your guess is: {userGuess}, the number is: {num}")
-        userGuess = int(input("Press Enter to continue..."))
+        print("Sorry, that's not the number.")
+        userGuess = int(input("Guess a number between 1 and 10: "))
         if userGuess == num:
             print("Congratulations! You guessed the number.")
             break
-print(userGuess)
