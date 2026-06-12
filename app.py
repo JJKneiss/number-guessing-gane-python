@@ -1,21 +1,21 @@
 import random
 
-randomNumber = random.randint(1, 10)
-
+RED = '\033[91m'
+GREEN = '\033[92m'
+RESET = '\033[0m'
+random_number = random.randint(1, 10)
+guesses = 0
 while True:
-    userGuess = input("Guess a number between 1 and 10: ")
+    user_number = input("Guess a number between 1 and 10: ")
     try:
-        userNumber = int(userGuess)
-        break
-    except ValueError:
-        print("Enter a valid number.")
-
-if userNumber == randomNumber:
-    print("Congratulations! You guessed the number.")
-else:
-    while userGuess != randomNumber:
-        print("Sorry, that's not the number.")
-        userGuess = int(input("Guess a number between 1 and 10: "))
-        if userGuess == randomNumber:
-            print("Congratulations! You guessed the number.")
+        user_number = int(user_number)
+        guesses += 1
+        if user_number == random_number:
+            print(f"{GREEN}Congratulations! You guessed the number in {guesses} guesses.{RESET}")
             break
+        elif user_number < 1 or user_number > 10:
+            print(f"{RED}Please enter a number between 1 and 10.{RESET}")
+        else:
+            print(f"{RED}Sorry, that's not the number.{RESET}")
+    except ValueError:
+        print(f"{RED}Enter a valid number.{RESET}")
