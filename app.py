@@ -1,15 +1,21 @@
 import random
-num = random.randint(1, 10)
 
-userGuess = input("Guess a number between 1 and 10: ")
-userGuess = int(userGuess)
+randomNumber = random.randint(1, 10)
 
-if userGuess == num:
+while True:
+    userGuess = input("Guess a number between 1 and 10: ")
+    try:
+        userNumber = int(userGuess)
+        break
+    except ValueError:
+        print("Enter a valid number.")
+
+if userNumber == randomNumber:
     print("Congratulations! You guessed the number.")
 else:
-    while userGuess != num:
+    while userGuess != randomNumber:
         print("Sorry, that's not the number.")
         userGuess = int(input("Guess a number between 1 and 10: "))
-        if userGuess == num:
+        if userGuess == randomNumber:
             print("Congratulations! You guessed the number.")
             break
