@@ -19,3 +19,4 @@ while True:
             print(f"{RED}Sorry, that's not the number.{RESET}")
     except ValueError:
         print(f"{RED}Enter a valid number.{RESET}")
+        
